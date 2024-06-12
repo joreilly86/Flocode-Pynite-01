@@ -1,5 +1,3 @@
-# Units used for the model in this example are meters and kilonewtons
-
 # Import `FEModel3D` from `PyNite`
 from PyNite import FEModel3D
 from matplotlib import pyplot as plt
@@ -27,27 +25,18 @@ simple_beam.add_material('Steel', E, G, nu, rho)
 simple_beam.add_member('M1', 'N1', 'N2', 'Steel', 1.2e-4, 1.6e-4, 2.7e-4, 0.025)
 
 # Provide simple supports
-# simple_beam.def_support(node_id, u1, u2, u3, r1, r2, r3)
-# where u1, u2, u3 are the restraints in the x, y, and z directions, respectively, 
-# and r1, r2, r3 are the rotations about the x, y, and z axes, respectively.
 simple_beam.def_support('N1', True, True, True, False, False, False)
 simple_beam.def_support('N2', True, True, True, True, False, False)
 
-# Add a uniformly distributed load (UDL) of 20 kN/m to the beam
-# simple_beam.add_member_dist_load(member_id, direction, w1, w2, x1, x2, case)
-simple_beam.add_member_dist_load('M1', 'Fy', -20, -20, 0, 6, 'D')
-
-# Add a snow load of 10 kN/m to the beam
-simple_beam.add_member_dist_load('M1', 'Fy', -5, -5, 0, 6, 'S')
+# Add a uniform load of 20 kN/m to the beam
+simple_beam.add_member_dist_load('M1', 'Fy', -30, -30, 0, 6, 'D')
 
 # Add point loads at different positions
-# simple_beam.add_member_pt_load(member_id, direction, P, x, case)
-simple_beam.add_member_pt_load('M1', 'Fy', -10, 3, 'D')  # 50 kN Dead load at midspan (3 meters)
-simple_beam.add_member_pt_load('M1', 'Fy', 10, 1.5, 'L')  # 50 kN Live load at quarter span (1.5 meters)
-simple_beam.add_member_pt_load('M1', 'Fy', -2.5, 4.5, 'L')  # -2.5 kN Live load at three-quarter span (4.5 meters)
+simple_beam.add_member_pt_load('M1', 'Fy', -10, 3, 'D')  # 10 kN Dead load at midspan (3 meters)
+simple_beam.add_member_pt_load('M1', 'Fy', 45, 1.5, 'L')  # 45 kN Live load at quarter span (1.5 meters)
+simple_beam.add_member_pt_load('M1', 'Fy', -20, 4.5, 'L')  # 5 kN Live load at three-quarter span (4.5 meters)
 
 # Add load combinations
-# simple_beam.add_load_combo(name, factors)
 simple_beam.add_load_combo('1.4D', {'D': 1.4})
 simple_beam.add_load_combo('1.2D+1.6L', {'D': 1.2, 'L': 1.6})
 simple_beam.add_load_combo('1.2D+1.6L+0.5S', {'D': 0.5, 'L': 1.6, 'S': 0.5})
@@ -55,7 +44,12 @@ simple_beam.add_load_combo('1.2D+1.6L+0.5S', {'D': 0.5, 'L': 1.6, 'S': 0.5})
 # Analyze the beam and perform a statics check
 simple_beam.analyze(check_statics=True)
 
-Visualization.render_model(simple_beam, annotation_size=0.1, deformed_shape=True, deformed_scale=0.5, render_loads=True, combo_name='1.2D+1.6L')
+# Set PyVista Jupyter backend, 'static' for static images or 'panel' for an interactive plot
+import pyvista as pv
+pv.set_jupyter_backend('static')  # Use 'static' backend for simplicity
+
+# Visualization using PyNite's render_model function
+Visualization.render_model(simple_beam, annotation_size=0.1, deformed_shape=True, deformed_scale=0.1, render_loads=True, combo_name='1.2D+1.6L')
 
 # Plot the moment diagram with all load cases and max/min envelope
 x, M1 = simple_beam.Members['M1'].moment_array("Mz", n_points=400, combo_name='1.4D')
