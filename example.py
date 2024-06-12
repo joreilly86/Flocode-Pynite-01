@@ -55,7 +55,7 @@ simple_beam.add_load_combo('1.2D+1.6L+0.5S', {'D': 0.5, 'L': 1.6, 'S': 0.5})
 # Analyze the beam and perform a statics check
 simple_beam.analyze(check_statics=True)
 
-Visualization.render_model(simple_beam, annotation_size=0.1, deformed_shape=True, deformed_scale=10, render_loads=True, combo_name='1.2D+1.6L')
+Visualization.render_model(simple_beam, annotation_size=0.1, deformed_shape=True, deformed_scale=0.5, render_loads=True, combo_name='1.2D+1.6L')
 
 # Plot the moment diagram with all load cases and max/min envelope
 x, M1 = simple_beam.Members['M1'].moment_array("Mz", n_points=400, combo_name='1.4D')
