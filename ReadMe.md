@@ -1,12 +1,24 @@
 # Flocode #034 - Pynite 01: Introduction to Finite Element Models in Python
 
-This repository contains a simple example of using the PyNite library to perform finite element analysis (FEA) on a beam with both point and distributed loads. The example demonstrates how to set up the model, apply loads, perform the analysis, and visualize the results.
+This repository contains a simple example of using the PyNite library to perform finite element analysis (FEA) on a beam with both point and distributed loads. 
+
+The example demonstrates how to set up the model, apply loads, perform the analysis, and visualize the results.
+
+There are many other excellent [examples](https://github.com/JWock82/PyNite/tree/main/Examples) for review in the PyNite Project Repo.
 
 ## Prerequisites
 
 - Python ^3.11
 - Poetry for dependency management, my preferred choice
 - I also added a `requirements.txt` file for the pip users
+
+### Helpful Links
+- [Jupyter Notebook Documentation](https://jupyter-notebook.readthedocs.io/en/stable/)
+- [Poetry Documentation](https://python-poetry.org/docs/)
+- [PyNite Documentation](https://pynite.readthedocs.io/en/latest/index.html)
+- [PyNite on GitHub](https://github.com/JWock82/PyNite/tree/main)
+- [VS Code Jupyter Extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
 
 ## Installation
 
@@ -26,8 +38,6 @@ This repository contains a simple example of using the PyNite library to perform
    poetry shell
    ```
 
-Certainly! Here's the revised section:
-
 ## Running the Example
 
 I like to use Jupyter Notebooks, but you can choose to use a script or a notebook, whichever you prefer.
@@ -39,24 +49,38 @@ To run the example script, execute the following command:
 poetry run python example.py
 ```
 
-### Running in a Jupyter Notebook
+Certainly! Here's the revised section for running Jupyter notebooks in VS Code:
 
-1. **Ensure you have Jupyter installed**:
+## Running the Example
+
+I like to use Jupyter Notebooks in VS Code, but you can choose to use a script or a notebook, whichever you prefer.
+
+### Running as a Script
+
+To run the example script, execute the following command:
+```sh
+poetry run python example.py
+```
+
+### Running in a Jupyter Notebook in VS Code
+
+1. **Ensure you have Jupyter and the Jupyter extension for VS Code installed**:
    ```sh
    poetry add notebook
    ```
 
-2. **Start Jupyter Notebook**:
-   ```sh
-   poetry run jupyter notebook
-   ```
+   - Install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) in VS Code if you haven't already.
 
-3. **Create a new notebook and copy the example code into a cell**:
-   - Open the newly created notebook in your browser.
-   - Copy the example code into a cell.
+2. **Open VS Code and start a Jupyter notebook**:
+   - Open your project folder in VS Code.
+   - Open the command palette (Ctrl+Shift+P) and select `Python: Create New Blank Notebook`.
+   - Alternatively, you can create a new `.ipynb` file directly in the Explorer view.
+
+4. **Copy the example code into a cell**:
+   - Copy the example code into a cell in the newly created notebook.
    - Run the cell to execute the code.
 
-This way, you can run the example either as a standalone script or interactively in a Jupyter notebook, based on your preference.
+This way, you can run the example either as a standalone script or interactively in a Jupyter notebook within VS Code, based on your preference.
 
 ## Code Explanation
 
@@ -235,14 +259,14 @@ plt.show()
   - `n_points` (int): Number of points along the member length to calculate the moment.
   - `combo_name` (str): Load combination name.
 
-## Follow flocode
+## For more Flocode content
 
 For more tutorials and updates, follow flocode on:
 
 - [**Newsletter**](https://flocode.substack.com/)
 - [**YouTube**](https://www.youtube.com/channel/UC51qm0xOHhJRImfKNwfH_Qw)
 - [**LinkedIn**](https://www.linkedin.com/in/james-o-reilly-engineering/)
-- [**Twitter**](http://x.com/flocode_dev)
+- [**X**](http://x.com/flocode_dev)
 
 See you in the next one.
 
