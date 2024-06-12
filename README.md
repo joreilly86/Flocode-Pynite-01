@@ -1,6 +1,8 @@
 # Flocode #034 - Pynite 01: Introduction to Finite Element Models in Python
 
-This repository contains a simple example of using the PyNite library to perform finite element analysis (FEA) on a beam with both point and distributed loads. The example demonstrates how to set up the model, apply loads, perform the analysis, and visualize the results.
+This repository contains a simple example of using the PyNite library to perform finite element analysis (FEA) on a beam with both point and distributed loads. 
+
+The example demonstrates how to set up the model, apply loads, perform the analysis, and visualize the results.
 
 ## Prerequisites
 
