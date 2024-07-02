@@ -6,6 +6,8 @@ The example demonstrates how to set up the model, apply loads, perform the analy
 
 There are many other excellent [examples](https://github.com/JWock82/PyNite/tree/main/Examples) for review in the PyNite Project Repo.
 
+The great thing about Pynite is that it's so flexible. You can create whatever you need.
+
 ## Prerequisites
 
 - Python ^3.11
@@ -29,7 +31,7 @@ There are many other excellent [examples](https://github.com/JWock82/PyNite/tree
 
 2. **Install dependencies using Poetry**:
    ```sh
-   poetry install
+   poetry install --no-root
    ```
 
 3. **Activate the Poetry environment**:
@@ -51,6 +53,7 @@ poetry run python example.py
 ## Running the Example
 
 I like to use Jupyter Notebooks in VS Code, but you can choose to use a script or a notebook, whichever you prefer.
+I find it easier to debug and visualize the results in a notebook.
 
 ### Running as a Script
 
