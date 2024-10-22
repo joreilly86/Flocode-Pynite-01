@@ -1,4 +1,4 @@
-# Flocode #034 - Pynite 01: Introduction to Finite Element Models in Python
+# Flocode #049 - Pynite 01: Introduction to Finite Element Models in Python
 
 This repository contains a simple example of using the PyNite library to perform finite element analysis (FEA) on a beam with both point and distributed loads. 
 
