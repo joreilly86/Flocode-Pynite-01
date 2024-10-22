@@ -7,6 +7,7 @@ The example demonstrates how to set up the model, apply loads, perform the analy
 There are many other excellent [examples](https://github.com/JWock82/PyNite/tree/main/Examples) for review in the PyNite Project Repo.
 
 The great thing about Pynite is that it's so flexible. You can create whatever you need.
+It's important to note that the Pynite library is still in development, so there may be some changes in the future. The [PyNite Documentation](https://pynite.readthedocs.io/en/latest/index.html) is always the best place to go to learn more.
 
 ## Prerequisites
 
@@ -214,26 +215,28 @@ Visualization.render_model(simple_beam, annotation_size=0.1, deformed_shape=True
 ### Plotting Moment Diagram
 
 ```python
-x, M1 = simple_beam.Members['M1'].moment_array("Mz", n_points=400, combo_name='1.4D')
-_, M2 = simple_beam.Members['M1'].moment_array("Mz", n_points=400, combo_name='1.2D+1.6L')
-_, M3 = simple_beam.Members['M1'].moment_array("Mz", n_points=400, combo_name='1.2D+1.6L+0.5S')
+# Plot the moment diagram with all load cases and max/min envelope
+x, M1 = simple_beam.members['M1'].moment_array("Mz", n_points=400, combo_name='1.4D')
+_, M2 = simple_beam.members['M1'].moment_array("Mz", n_points=400, combo_name='1.2D+1.6L')
+_, M3 = simple_beam.members['M1'].moment_array("Mz", n_points=400, combo_name='1.2D+1.6L+0.5S')
 
-max_envelope = np.maximum(np.maximum(M1, M2), M3)
-min_envelope = np.minimum(np.minimum(M1, M2), M3)
+max_moment_envelope = np.maximum(np.maximum(M1, M2), M3)
+min_moment_envelope = np.minimum(np.minimum(M1, M2), M3)
 
-plt.plot(x, np.zeros(len(x)), c="black", lw=
+plt.figure(figsize=(12, 6))
 
-3)
+# Moment Diagram
+plt.subplot(2, 1, 1)
+plt.plot(x, np.zeros(len(x)), c="black", lw=3)
 plt.plot(x, M1, label='1.4D')
 plt.plot(x, M2, label='1.2D+1.6L')
 plt.plot(x, M3, label='1.2D+1.6L+0.5S')
-plt.plot(x, max_envelope, alpha=0.3, c="green", lw=5, label='Max Envelope')
-plt.plot(x, min_envelope, alpha=0.3, c="red", lw=5, label='Min Envelope')
+plt.plot(x, max_moment_envelope, alpha=0.3, c="green", lw=5, label='Max Moment Envelope')
+plt.plot(x, min_moment_envelope, alpha=0.3, c="red", lw=5, label='Min Moment Envelope')
 plt.legend()
 plt.xlabel('Position along the beam (meters)')
 plt.ylabel('Moment (kN-m)')
 plt.title('Moment Diagram')
-plt.show()
 ```
 - `moment_array(direction, n_points, combo_name)`: Returns the moment array for a member.
   - `direction` (str): The direction of the moment ('Mx', 'My', 'Mz').
