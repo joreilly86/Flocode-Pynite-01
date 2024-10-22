@@ -11,12 +11,12 @@ The great thing about Pynite is that it's so flexible. You can create whatever y
 ## Prerequisites
 
 - Python ^3.11
-- Poetry for dependency management, my preferred choice
+- uv for dependency management, my preferred choice
 - I also added a `requirements.txt` file for the pip users
 
 ### Helpful Links
 - [Jupyter Notebook Documentation](https://jupyter-notebook.readthedocs.io/en/stable/)
-- [Poetry Documentation](https://python-poetry.org/docs/)
+- [uv Documentation](https://docs.astral.sh/uv/)
 - [PyNite Documentation](https://pynite.readthedocs.io/en/latest/index.html)
 - [PyNite on GitHub](https://github.com/JWock82/PyNite/tree/main)
 - [VS Code Jupyter Extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
@@ -25,18 +25,18 @@ The great thing about Pynite is that it's so flexible. You can create whatever y
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/joreilly86/Flocode-034-Pynite-01.git
-   cd Flocode-034-Pynite-01
+   git clone https://github.com/joreilly86/Flocode-Pynite-01.git
+   cd Flocode-Pynite-01
    ```
 
-2. **Install dependencies using Poetry**:
+2. **Install dependencies using uv**:
    ```sh
-   poetry install --no-root
+   uv --install
    ```
 
-3. **Activate the Poetry environment**:
+3. **Activate the uv virtual environment**:
    ```sh
-   poetry shell
+   .venv\Scripts\activate
    ```
 
 ## Running the Example
@@ -45,9 +45,9 @@ I like to use Jupyter Notebooks, but you can choose to use a script or a noteboo
 
 ### Running as a Script
 
-To run the example script, execute the following command:
+To run the example script, make sure you're in your venv and execute the following command:
 ```sh
-poetry run python example.py
+python example.py
 ```
 
 ## Running the Example
@@ -55,32 +55,13 @@ poetry run python example.py
 I like to use Jupyter Notebooks in VS Code, but you can choose to use a script or a notebook, whichever you prefer.
 I find it easier to debug and visualize the results in a notebook.
 
-### Running as a Script
-
-To run the example script, execute the following command:
-```sh
-poetry run python example.py
-```
 
 ### Running in a Jupyter Notebook in VS Code
 
 1. **Ensure you have Jupyter and the Jupyter extension for VS Code installed**:
-   ```sh
-   poetry add notebook
-   ```
 
    - Install the [Jupyter extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) in VS Code if you haven't already.
 
-2. **Open VS Code and start a Jupyter notebook**:
-   - Open your project folder in VS Code.
-   - Open the command palette (Ctrl+Shift+P) and select `Python: Create New Blank Notebook`.
-   - Alternatively, you can create a new `.ipynb` file directly in the Explorer view.
-
-4. **Copy the example code into a cell**:
-   - Copy the example code into a cell in the newly created notebook.
-   - Run the cell to execute the code.
-
-This way, you can run the example either as a standalone script or interactively in a Jupyter notebook within VS Code, based on your preference.
 
 ## Code Explanation
 
@@ -258,6 +239,9 @@ plt.show()
   - `direction` (str): The direction of the moment ('Mx', 'My', 'Mz').
   - `n_points` (int): Number of points along the member length to calculate the moment.
   - `combo_name` (str): Load combination name.
+
+> ## Note on Rendering
+> Look for the output window to pop up while running the script. It may be hidden behind other windows.
 
 ## For more Flocode content
 
